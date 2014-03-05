@@ -32,6 +32,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     [window.layer renderInContext:context];
     UIImage *snapShot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return snapShot;
 }
 
@@ -131,19 +132,19 @@
     UIImage *snapShot = [self imageFromWindow];
     [self.previewImages addObject:snapShot];
     
-    UIImageView *snapShotView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    __block UIImageView *snapShotView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     snapShotView.image = snapShot;
-    UIView *maskView = [[UIView alloc] initWithFrame:self.view.bounds];
+    __block UIView *maskView = [[UIView alloc] initWithFrame:self.view.bounds];
     maskView.backgroundColor = [UIColor blackColor];
     maskView.alpha = 0.f;
     
-    UIView *backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
+    __block UIView *backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     backgroundView.backgroundColor = [UIColor blackColor];
     
     [super pushViewController:viewController animated:animated];
     
     UIImage *toViewSnapShot = [self imageFromWindow];
-    UIImageView *toView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    __block UIImageView *toView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     toView.image = toViewSnapShot;
     toView.frame = CGRectOffset(toView.frame, 320, 0);
     [self.view addSubview:backgroundView];
@@ -160,6 +161,11 @@
         [maskView removeFromSuperview];
         [snapShotView removeFromSuperview];
         [backgroundView removeFromSuperview];
+        
+        toView = nil;
+        maskView = nil;
+        snapShotView = nil;
+        backgroundView = nil;
     }];
 }
 
@@ -198,7 +204,7 @@
         fromSnapshotView = nil;
         maskView = nil;
         toSnapshotView = nil;
-        maskView = nil;
+        backgroundView = nil;
     }];
 }
 
