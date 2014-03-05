@@ -21,6 +21,7 @@
 		1F6232C518C6F10A00B91BD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6232A718C6F10A00B91BD3 /* UIKit.framework */; };
 		1F6232CD18C6F10A00B91BD3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F6232CB18C6F10A00B91BD3 /* InfoPlist.strings */; };
 		1F6232CF18C6F10A00B91BD3 /* LYNavigationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6232CE18C6F10A00B91BD3 /* LYNavigationControllerTests.m */; };
+		1F6232DA18C6F12800B91BD3 /* LYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6232D918C6F12800B91BD3 /* LYNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		1F6232CA18C6F10A00B91BD3 /* LYNavigationControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LYNavigationControllerTests-Info.plist"; sourceTree = "<group>"; };
 		1F6232CC18C6F10A00B91BD3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F6232CE18C6F10A00B91BD3 /* LYNavigationControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYNavigationControllerTests.m; sourceTree = "<group>"; };
+		1F6232D818C6F12800B91BD3 /* LYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYNavigationController.h; sourceTree = "<group>"; };
+		1F6232D918C6F12800B91BD3 /* LYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				1F6232B518C6F10A00B91BD3 /* Main.storyboard */,
 				1F6232B818C6F10A00B91BD3 /* ViewController.h */,
 				1F6232B918C6F10A00B91BD3 /* ViewController.m */,
+				1F6232D818C6F12800B91BD3 /* LYNavigationController.h */,
+				1F6232D918C6F12800B91BD3 /* LYNavigationController.m */,
 				1F6232BB18C6F10A00B91BD3 /* Images.xcassets */,
 				1F6232AA18C6F10A00B91BD3 /* Supporting Files */,
 			);
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6232DA18C6F12800B91BD3 /* LYNavigationController.m in Sources */,
 				1F6232BA18C6F10A00B91BD3 /* ViewController.m in Sources */,
 				1F6232B418C6F10A00B91BD3 /* AppDelegate.m in Sources */,
 				1F6232B018C6F10A00B91BD3 /* main.m in Sources */,
@@ -381,6 +387,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LYNavigationController/LYNavigationController-Prefix.pch";
 				INFOPLIST_FILE = "LYNavigationController/LYNavigationController-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -394,6 +401,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LYNavigationController/LYNavigationController-Prefix.pch";
 				INFOPLIST_FILE = "LYNavigationController/LYNavigationController-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
