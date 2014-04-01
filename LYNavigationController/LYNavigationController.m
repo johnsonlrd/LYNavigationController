@@ -11,6 +11,7 @@
 
 #define IMAGE_SCALE .95
 #define DEFAULT_ALPHA 0.75
+#define DOWNSIZE_SCALE 0.6
 
 @interface LYNavigationController () <UIGestureRecognizerDelegate>
 {
@@ -27,13 +28,20 @@
 
 - (UIImage *)imageFromWindow
 {
-    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-    UIGraphicsBeginImageContext(window.bounds.size);
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+
+    if (UIGraphicsBeginImageContextWithOptions == NULL) {
+        UIGraphicsBeginImageContext(window.bounds.size);
+    } else {
+        UIGraphicsBeginImageContextWithOptions(window.bounds.size, YES, 0);
+    }
     CGContextRef context = UIGraphicsGetCurrentContext();
     [window.layer renderInContext:context];
     UIImage *snapShot = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *downsizeSnapShot = [UIImage imageWithData:UIImageJPEGRepresentation(snapShot, DOWNSIZE_SCALE)];
+    
     UIGraphicsEndImageContext();
-    return snapShot;
+    return downsizeSnapShot;
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)ges
